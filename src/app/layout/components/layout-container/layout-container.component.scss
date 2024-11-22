@@ -1,0 +1,14 @@
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+.sidenav-container {
+  height: 100vh; 
+}
+
+.content {
+  padding: 16px; 
+  height: calc(100vh - 64px); 
+  overflow: auto; 
+}

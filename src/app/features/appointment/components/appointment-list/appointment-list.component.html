@@ -1,0 +1,13 @@
+<h2>Appointments</h2>
+<mat-list>
+    <mat-list-item *ngFor="let appointment of appointments">
+        <div>
+            <strong>{{ appointment.title }}</strong> - {{ appointment.date | date }} {{ appointment.time }}
+            ({{ appointment.durationHours }}h {{ appointment.durationMinutes }}m)
+        </div>
+        <div>
+            <button mat-button color="accent" (click)="editAppointment(appointment)">Edit</button>
+            <button mat-button color="warn" (click)="deleteAppointment(appointment.id)">Delete</button>
+        </div>
+    </mat-list-item>
+</mat-list>

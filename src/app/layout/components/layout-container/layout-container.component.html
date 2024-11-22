@@ -1,0 +1,33 @@
+<mat-sidenav-container class="sidenav-container" style="height: 100vh;">
+    <mat-sidenav mode="side" opened>
+        <mat-toolbar>Calendar App</mat-toolbar>
+        <mat-list>
+            <button mat-fab extended (click)="onClick()">
+                <mat-icon>add_circle</mat-icon>
+                Create Appointment
+            </button>
+            <mat-card class="demo-inline-calendar-card">
+                <mat-calendar [(selected)]="selected"></mat-calendar>
+            </mat-card>
+
+        </mat-list>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+        <mat-toolbar color="primary">
+            <span>Admin Panel Title</span>
+            <span class="spacer"></span>
+            <button mat-icon-button>
+                <mat-icon>notifications</mat-icon>
+            </button>
+            <button mat-icon-button>
+                <mat-icon>account_circle</mat-icon>
+            </button>
+        </mat-toolbar>
+
+        <div class="content">
+            <router-outlet></router-outlet>
+            <!-- Main Content Here -->
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>
