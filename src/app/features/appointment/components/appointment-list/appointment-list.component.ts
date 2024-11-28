@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnChanges, OnInit } from '@angular/core';
 import { AppointmentDto } from '../../models/appointment.dto';
 import { FormBuilder } from '@angular/forms';
 import { IndexedDbService } from '../../../../core/services/indexed-db.service';
@@ -8,12 +8,16 @@ import { IndexedDbService } from '../../../../core/services/indexed-db.service';
   templateUrl: './appointment-list.component.html',
   styleUrl: './appointment-list.component.scss'
 })
-export class AppointmentListComponent {
+export class AppointmentListComponent implements OnChanges, OnInit {
 
   appointments: AppointmentDto[] = [];
   editingAppointment: AppointmentDto | null = null;
 
   constructor(private indexedDbService: IndexedDbService) {
+  }
+
+  ngOnChanges() {
+    this.loadAppointments();
   }
 
   ngOnInit() {

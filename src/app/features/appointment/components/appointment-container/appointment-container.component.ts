@@ -7,4 +7,15 @@ import { Component } from '@angular/core';
 })
 export class AppointmentContainerComponent {
 
+  selectedIndex: number = 0;
+
+  //changeTab(index: number) {
+  //  this.selectedIndex = index;
+  //}
+
+  onSubmit(event: boolean) {
+    if (event) {
+      this.selectedIndex = 0;
+    }
+  }
 }

@@ -1,3 +1,10 @@
-<app-appointment-list></app-appointment-list>
 
-<app-appointment-form></app-appointment-form>
+<mat-tab-group [(selectedIndex)]="selectedIndex"
+               mat-align-tabs="start" mat-stretch-tabs="false">
+    <mat-tab label="Appointments">
+        <app-appointment-list *ngIf="selectedIndex === 0"></app-appointment-list>
+    </mat-tab>
+    <mat-tab label="Create Appointment">
+        <app-appointment-form *ngIf="selectedIndex === 1" (submitEmitter)="onSubmit($event)"></app-appointment-form>
+    </mat-tab>
+</mat-tab-group>

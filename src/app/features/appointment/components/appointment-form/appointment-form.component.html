@@ -10,21 +10,21 @@
     </div>
     <div>
         <mat-form-field appearance="fill">
-            <mat-label>Date</mat-label>
-            <input matInput [matDatepicker]="picker" formControlName="date" required>
+            <mat-label>Appointment date</mat-label>
+            <input matInput [matDatepicker]="picker" formControlName="date" [min]="minDate" required>
             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-datepicker #picker></mat-datepicker>
             <mat-error *ngIf="appointmentForm.get('date')?.hasError('required')">
-                Date is required.
+                Appointment date is required.
             </mat-error>
         </mat-form-field>
     </div>
     <div>
         <mat-form-field appearance="fill">
-            <mat-label>Time</mat-label>
+            <mat-label>Appointment time</mat-label>
             <input matInput type="time" formControlName="time" required>
             <mat-error *ngIf="appointmentForm.get('time')?.hasError('required')">
-                Time is required.
+                Appointment time is required.
             </mat-error>
         </mat-form-field>
     </div>
@@ -37,19 +37,7 @@
             </mat-error>
         </mat-form-field>
     </div>
-    <div>
-        <mat-form-field appearance="fill">
-            <mat-label>Duration (Minutes)</mat-label>
-            <input matInput type="number" formControlName="durationMinutes" required>
-            <mat-error *ngIf="appointmentForm.get('durationMinutes')?.hasError('required')">
-                Duration in minutes is required.
-            </mat-error>
-            <mat-error *ngIf="appointmentForm.get('durationMinutes')?.hasError('max')">
-                Minutes must be less than 60.
-            </mat-error>
-        </mat-form-field>
-    </div>
-
+    
     <div>
         <mat-form-field appearance="fill">
             <mat-label>Notes</mat-label>

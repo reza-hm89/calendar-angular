@@ -43,4 +43,10 @@ export class IndexedDbService {
   async deleteAppointment(id: number) {
     return await this.db.delete(this.storeName, id);
   }
+
+  async updateAppointment(record: { id: number;[key: string]: any }) {
+    const tx = this.db.transaction(this.storeName, 'readwrite');
+    await tx.store.put(record);
+    await tx.done;
+  }
 }

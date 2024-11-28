@@ -8,7 +8,8 @@ const routes: Routes = [
     path: '', component: LayoutContainerComponent,
     children: [
       { path: '', loadChildren: () => import('./layout/layout.module').then((m) => m.LayoutModule) },
-      { path: 'appointment', loadChildren: () => import('./features/appointment/appointment.module').then((m) => m.AppointmentModule), }
+      { path: 'appointment', loadChildren: () => import('./features/appointment/appointment.module').then((m) => m.AppointmentModule), },
+      { path: 'calendar', loadChildren: () => import('./features/calendar/calendar.module').then((m) => m.CalendarModule), }
     ]
 
   },

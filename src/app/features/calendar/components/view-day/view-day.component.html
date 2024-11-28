@@ -1,0 +1,33 @@
+<!-- <div *ngIf="show && events24.length >0" class="calendar-container" >
+    <div *ngFor="let hour of [].constructor(24); let i = index">
+        <div class="time-column">
+            <div class="time-slot">{{ i }}:00</div>
+        </div>
+        <div class="events-column">
+            <div
+                 class="event" [style.top]="events24[i].start * 60 + 'px'"
+                 [style.height]="(events24[i].end - events24[i].start) * 60 + 'px'">
+                {{ events24[i].title }}
+            </div>
+        </div>
+    </div>
+</div> -->
+<p>Date is: {{date | date}}</p>
+
+<div class="calendar-container">
+    <div class="time-column">
+        <div *ngFor="let hour of [].constructor(24); let i = index" class="time-slot">
+            {{ i }} :00
+        </div>
+    </div>
+    <div class="events-column" cdkDropList (cdkDropListDropped)="drop($event)">
+        @for(event of events24; track event){
+        <div *ngIf="event.active" cdkDrag class="event" [style.top]="event.start * 60 + 'px'" [style.height]="(event.end - event.start) * 60 + 'px'">
+            {{ event.title }}
+        </div>
+        <div *ngIf="!event.active" cdkDrag [style.top]="event.start * 60 + 'px'" [style.height]="(event.end - event.start) * 60 + 'px'">
+        </div>
+        }
+
+    </div>
+</div>

@@ -4,6 +4,8 @@ export interface AppointmentDto {
   date: Date;
   time: string;
   durationHours: number;
-  durationMinutes: number;
+  start: number;
+  end: number;
   notes?: string;
+  active: boolean;
 }
