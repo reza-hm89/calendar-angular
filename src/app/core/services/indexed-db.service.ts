@@ -30,12 +30,13 @@ export class IndexedDbService {
 
   // Method to add an appointment
   async addAppointment(dto: AppointmentDto) {
+    if (!this.db) await this.initDb(); 
     return await this.db.add(this.storeName, dto);
   }
 
   // Method to get all appointments
   async getAppointments() {
-    if (!this.db) await this.initDb(); // Ensure db is initialized
+    if (!this.db) await this.initDb(); 
     return await this.db.getAll(this.storeName);
   }
 

@@ -21,6 +21,8 @@ export class ViewDayComponent implements OnChanges, OnInit {
 
   date: any;
 
+  selectedEvent!: AppointmentDto | null;
+
   constructor(
     private service: CalendarService,
     private indexedDbService: IndexedDbService) {
@@ -30,10 +32,11 @@ export class ViewDayComponent implements OnChanges, OnInit {
   }
 
   ngOnInit() {
-    this.service.selectedDate2.subscribe(
+    this.service.selectedDate.subscribe(
       res => {
         this.date = res;
         this.events24 = [];
+        this.selectedEvent = null;
         this.hours.forEach(x => {
           this.events24.push({ id: 0, date: this.date, active: false, title: '', start: x, end: x + 1, time: '', durationHours: x + 1 },)
         })
@@ -57,16 +60,22 @@ export class ViewDayComponent implements OnChanges, OnInit {
 
   }
 
+  selectEvent(dto: AppointmentDto | null) {
+    this.selectedEvent = dto;
+  }
+
   async drop(event: CdkDragDrop<any[]>) {
     moveItemInArray(this.events24, event.previousIndex, event.currentIndex);
-    
+
     let updatedRecord = this.events24[event.currentIndex];
     if (updatedRecord.active) {
+      
+      updatedRecord.time = event.currentIndex + ':00';
       updatedRecord.start = event.currentIndex;
       updatedRecord.end = updatedRecord.start + updatedRecord.durationHours;
       await this.indexedDbService.updateAppointment(updatedRecord);
     }
-   
+
   }
 
   async loadAppointments() {

@@ -13,6 +13,12 @@ export class AppointmentContainerComponent {
   //  this.selectedIndex = index;
   //}
 
+  onNew(event: boolean) {
+    if (event) {
+      this.selectedIndex = 1;
+    }
+  }
+
   onSubmit(event: boolean) {
     if (event) {
       this.selectedIndex = 0;

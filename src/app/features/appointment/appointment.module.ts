@@ -18,8 +18,7 @@ import { AppointmentListComponent } from './components/appointment-list/appointm
   imports: [
     CommonModule,
     AppointmentRoutingModule,
-    SharedModule
-
+    SharedModule,
   ]
 })
 export class AppointmentModule { }

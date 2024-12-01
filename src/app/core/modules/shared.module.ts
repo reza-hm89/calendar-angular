@@ -14,8 +14,14 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatTabGroup, MatTabsModule } from '@angular/material/tabs';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatTableModule } from '@angular/material/table';
 
 import { DragDropModule } from '@angular/cdk/drag-drop';
+import { ConfirmDialogComponent } from '../components/confirm-dialog/confirm-dialog.component';
+
+const COMPONENTS = [
+  ConfirmDialogComponent
+]
 
 const COMMON_MODULES = [
   CommonModule,
@@ -44,16 +50,19 @@ const MATERIAL_MODULES = [
   MatCardModule,
   MatButtonModule,
   MatToolbarModule,
+  MatTableModule
 ]
 
 @NgModule({
   declarations: [],
   imports: [
+    COMPONENTS,
     COMMON_MODULES,
     CDK_MODULES,
     MATERIAL_MODULES
   ],
   exports: [
+    COMPONENTS,
     COMMON_MODULES,
     CDK_MODULES,
     MATERIAL_MODULES

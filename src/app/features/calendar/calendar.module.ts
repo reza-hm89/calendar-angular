@@ -3,16 +3,14 @@ import { CommonModule } from '@angular/common';
 
 import { CalendarRoutingModule } from './calendar-routing.module';
 import { ViewDayComponent } from './components/view-day/view-day.component';
-import { ViewWeekComponent } from './components/view-week/view-week.component';
-import { ViewMonthComponent } from './components/view-month/view-month.component';
 import { SharedModule } from '../../core/modules/shared.module';
+import { ViewDetailsComponent } from './components/view-details/view-details.component';
 
 
 @NgModule({
   declarations: [
     ViewDayComponent,
-    ViewWeekComponent,
-    ViewMonthComponent
+    ViewDetailsComponent,
   ],
   imports: [
     CommonModule,

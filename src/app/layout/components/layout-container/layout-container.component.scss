@@ -4,11 +4,27 @@ html, body {
 }
 
 .sidenav-container {
-  height: 100vh; 
+  height: 100vh;
+}
+
+.sidebar {
+  width: 17rem;
+}
+
+.side-nav {
+  display: flex;
+  justify-content: left;
 }
 
 .content {
-  padding: 16px; 
-  height: calc(100vh - 64px); 
-  overflow: auto; 
+  padding: 16px;
+  /*height: calc(100vh - 64px);*/
+  overflow: auto;
+}
+
+.button-container {
+  margin-left: 1rem;
+  display: flex;
+  justify-content: center;
+  margin-left: 14rem;
 }

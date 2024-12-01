@@ -1,15 +1,8 @@
 <mat-sidenav-container class="sidenav-container" style="height: 100vh;">
-    <mat-sidenav mode="side" opened>
+    <mat-sidenav mode="side" opened class="sidebar">
         <mat-toolbar>Calendar App</mat-toolbar>
         <mat-list style="padding-bottom:1rem">
-            <button mat-fab extended (click)="onClick()">
-                <mat-icon>add_circle</mat-icon>
-                Create Appointment
-            </button>
-            <button mat-fab extended (click)="onClick2()">
-                <mat-icon>calendar_month</mat-icon>
-                Show Calendar
-            </button>
+
             <mat-card class="demo-inline-calendar-card">
                 <mat-calendar [(selected)]="selected" (selectedChange)="onSelectedChange($event)"></mat-calendar>
             </mat-card>
@@ -17,15 +10,19 @@
     </mat-sidenav>
 
     <mat-sidenav-content>
-        <mat-toolbar color="primary">
-            <span>Admin Panel Title</span>
-            <span class="spacer"></span>
-            <button mat-icon-button>
-                <mat-icon>notifications</mat-icon>
-            </button>
-            <button mat-icon-button>
-                <mat-icon>account_circle</mat-icon>
-            </button>
+        <mat-toolbar color="primary" class="side-nav">
+            <div class="button-container">
+                <button mat-fab extended (click)="onClick()">
+                    <mat-icon>fact_check</mat-icon>
+                    Appointments
+                </button>
+            </div>
+            <div class="button-container">
+                <button mat-fab extended (click)="onClick2()">
+                    <mat-icon>calendar_month</mat-icon>
+                    Calendar
+                </button>
+            </div>
         </mat-toolbar>
 
         <div class="content">

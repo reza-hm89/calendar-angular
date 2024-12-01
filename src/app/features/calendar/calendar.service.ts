@@ -6,9 +6,7 @@ import { BehaviorSubject, Subject } from 'rxjs';
 })
 export class CalendarService {
 
-
-  selectedDate = signal(new Date());
-  selectedDate2 = new BehaviorSubject<Date | null>(null);
+  selectedDate = new BehaviorSubject<Date | null>(null);
 
   constructor() { }
 }

@@ -1,0 +1,29 @@
+<mat-card appearance="outlined" *ngIf="model" class="m">
+    <mat-card-header>
+        <mat-card-title>Appointment Details</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <mat-list>
+            <mat-list-item>
+                <span matListItemTitle>Title</span>
+                <span matListItemLine>{{model.title}}</span>
+            </mat-list-item>
+            <mat-list-item>
+                <span matListItemTitle>Appointment Date</span>
+                <span matListItemLine>{{model.date | date}}</span>
+            </mat-list-item>
+            <mat-list-item>
+                <span matListItemTitle>Start Time</span>
+                <span matListItemLine>{{model.time}}</span>
+            </mat-list-item>
+            <mat-list-item>
+                <span matListItemTitle>Duration (Hour)</span>
+                <span matListItemLine>{{model.durationHours}}</span>
+            </mat-list-item>
+            <mat-list-item>
+                <span matListItemTitle>Note</span>
+                <span matListItemLine>{{model.notes}}</span>
+            </mat-list-item>
+        </mat-list>
+    </mat-card-content>
+</mat-card>
